@@ -16,7 +16,7 @@ def check_found_url(url):
     req = requests.get(url)
     soup = BeautifulSoup(req.text, features='html.parser')
     _tables = soup.find_all("table", attrs={"class": "wikitable"})
-    print(soup.prettify())
+    # print(soup.prettify())
     return req.status_code, len(_tables) != 0
 
 
