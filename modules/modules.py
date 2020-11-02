@@ -2,14 +2,13 @@
 from bs4 import BeautifulSoup
 import requests
 class converter:
-
     def transform_wikiurls_to_realurls(wikiurls):
         base_url = 'https://en.wikipedia.org/wiki/'
         real_wikiurls = []
         for wikiurl in wikiurls:
             wikiurl = base_url + wikiurl
             real_wikiurls.append(wikiurl.strip())
-         return real_wikiurls
+        return real_wikiurls
 
 
     def check_found_url(url):
