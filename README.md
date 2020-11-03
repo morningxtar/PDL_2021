@@ -8,3 +8,4 @@ Before run you must install the following libraries :
 - lxml (pandas need to solve some problem)
 - requests
 - bs4
+- os
