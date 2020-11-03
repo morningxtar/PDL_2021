@@ -11,5 +11,8 @@ class Testconverter(unittest.TestCase):
     def test_check_found_url(self):
         self.fail()
 
+    def test_get_tables_contents_from_url(self):
+        self.fail()
+
     def test_write_csv_files(self):
         self.fail()

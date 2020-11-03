@@ -1,15 +1,15 @@
 # importing the libraries
 from bs4 import BeautifulSoup
 import requests
+
+
 def transform_wikiurls_to_realurls(wikiurls):
-     base_url = 'https://en.wikipedia.org/wiki/'
-     real_wikiurls = []
-     for wikiurl in wikiurls:
-         wikiurl = base_url + wikiurl
-         real_wikiurls.append(wikiurl.strip())
-     return real_wikiurls
-
-
+    base_url = 'https://en.wikipedia.org/wiki/'
+    real_wikiurls = []
+    for wikiurl in wikiurls:
+        wikiurl = base_url + wikiurl
+        real_wikiurls.append(wikiurl.strip())
+    return real_wikiurls
 
 
 def check_found_url(url):
@@ -20,8 +20,6 @@ def check_found_url(url):
     return req.status_code, len(_tables) != 0
 
 
-
-
 def get_tables_contents_from_url(url):
     html_content = requests.get(url).text
     soup = BeautifulSoup(html_content, features='html.parser')
@@ -29,15 +27,11 @@ def get_tables_contents_from_url(url):
     return _tables
 
 
-
-
 def write_csv_files(dataframe, filename):
     dataframe.to_csv(r'{}'.format(filename + '.csv'), index=False)
 
     # print(list(filter(None, lines_contents[0].text.split('\n\n'))))
     # print(lines_contents[2])
-
-
 
 
 def test(_tables):
@@ -61,5 +55,3 @@ def test(_tables):
             line_content[index] = line_content[index] + head.text.replace('\n', ' ').strip()
         else:
             line_content[index] = line_content[index] + head.text.replace('\n', ' ')
-
-
