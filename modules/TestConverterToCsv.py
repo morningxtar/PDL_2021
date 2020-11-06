@@ -33,3 +33,6 @@ class TestConverterToCsv(unittest.TestCase):
             # the specified path is
             # an existing regular file or not
             self.assertTrue(isfile(join(monRepertoire_output, folder)))
+
+    def test_write_csv_files(self):
+        self.fail()
