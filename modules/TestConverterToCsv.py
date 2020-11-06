@@ -13,13 +13,16 @@ class TestConverterToCsv(unittest.TestCase):
 
         self.assertEquals(336, len(urls))
 
+    # check if each url return 200 so it's successful and each contains wikitable
     def test_check_found_url(self):
         wikiurls_path = '../input/wikiurls.txt'
         with open(wikiurls_path, 'r') as f:
             urls = md.ConverterToCsv.transform_wikiurls_to_realurls(f.readlines())
             for url in urls:
-                self.assertTrue(md.ConverterToCsv.check_found_url(url)[0], 200)
-               # self.assertNotEqual(md.ConverterToCsv.check_found_url(url)[1], 0)
+                status_code, has_wikitable = md.ConverterToCsv.check_found_url(url)
+                self.assertEqual(status_code, 200,
+                                 '{} n\'est pas valide et renvoie une erreur {}'.format(url, status_code))
+                self.assertTrue(has_wikitable, 'La page ne contient pas de wikitable')
 
     def test_get_tables_contents_from_url(self):
         self.fail()
@@ -38,9 +41,6 @@ class TestConverterToCsv(unittest.TestCase):
             # the specified path is
             # an existing regular file or not
             self.assertTrue(isfile(join(monRepertoire_output, folder)))
-
-    def test_write_csv_files(self):
-        self.fail()
 
 
 if __name__ == '__main__':

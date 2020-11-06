@@ -1,7 +1,6 @@
 # PDL_2021
 Projet d'extraction de tableaux sur une page wikipédia avec python
 
-
 Before run you must install the following libraries :
 - pandas
 - html5lib (pandas need to solve some problem)
@@ -9,3 +8,5 @@ Before run you must install the following libraries :
 - requests
 - bs4
 - os
+
+you must create your folder input and file wikiurls.txt
