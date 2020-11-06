@@ -4,14 +4,17 @@ import lxml
 import html5lib
 import os
 import modules.ConverterToCsv as md
+import time
 
-wikiurls_path = '../input/wikiurls.txt'
-output_path = '../output'
 
-if not os.path.exists(output_path):
-    os.makedirs(output_path)
+def extractor_python():
+    wikiurls_path = '../input/wikiurls.txt'
+    output_path = '../output'
 
-if __name__ == '__main__':
+    start_time = time.time()
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+
     with open(wikiurls_path, 'r') as f:
         urls = md.ConverterToCsv.transform_wikiurls_to_realurls(f.readlines())
         for url in urls:
@@ -36,4 +39,12 @@ if __name__ == '__main__':
         print()
         print('tableaux non extraits {}'.format(files_no_extracted))
         print('{} tableaux non extraits'.format(number_of_files_no_extracted))
-        print('{} tableaux extraits'.format(md.ConverterToCsv.count_csv_files(output_path)))
+        print('Extractor Pyhton created {} files '.format(md.ConverterToCsv.count_csv_files(output_path)))
+    end_time = time.time()
+
+    return end_time - start_time
+
+
+if __name__ == '__main__':
+    duration = extractor_python()
+    print("Duration of the extractors in python: {} s".format(duration))
