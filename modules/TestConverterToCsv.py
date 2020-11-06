@@ -1,10 +1,10 @@
 import unittest
-import modules.modules as md
+import modules.ConverterToCsv as md
 from os import listdir
 from os.path import isfile, join, isdir
 
 
-class Testconverter(unittest.TestCase):
+class TestConverterToCsv(unittest.TestCase):
 
     def test_transform_wikiurls_to_realurls(self):
         urls = md.transform_wikiurls_to_realurls()

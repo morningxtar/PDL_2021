@@ -3,7 +3,7 @@ import pandas as pd
 import lxml
 import html5lib
 
-import modules.modules as md
+import modules.ConverterToCsv as md
 
 wikiurls_path = '../input/wikiurls.txt'
 output_path = '../output'
