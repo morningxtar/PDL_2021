@@ -1,6 +1,7 @@
 # importing the libraries
 from bs4 import BeautifulSoup
 import requests
+import os
 
 
 def transform_wikiurls_to_realurls(wikiurls):
@@ -32,6 +33,11 @@ def write_csv_files(dataframe, filename):
 
     # print(list(filter(None, lines_contents[0].text.split('\n\n'))))
     # print(lines_contents[2])
+
+
+def count_csv_files(output):
+    number_of_files = sum([len(files) for r, d, files in os.walk(output)])
+    return number_of_files
 
 
 def test(_tables):
