@@ -2,10 +2,14 @@
 import pandas as pd
 import lxml
 import html5lib
-
+import os
 import modules.ConverterToCsv as md
+
 wikiurls_path = '../input/wikiurls.txt'
 output_path = '../output'
+
+if not os.path.exists(output_path):
+    os.makedirs(output_path)
 
 if __name__ == '__main__':
     with open(wikiurls_path, 'r') as f:
@@ -20,10 +24,10 @@ if __name__ == '__main__':
                     dataframes = pd.read_html(url, attrs={"class": "wikitable"})
                     number_of_files_no_extracted = 0
                     files_no_extracted = []
-                  #  print(len(dataframes))
+                    #  print(len(dataframes))
                     for index, dataframe in enumerate(dataframes):
                         filename = namefolder + '_{}'.format(index)
-                        md.ConverterToCsv.write_csv_files(dataframe, '../output/{}'.format(filename))
+                        md.ConverterToCsv.write_csv_files(dataframe, '{}/{}'.format(output_path, filename))
                 except Exception as e:
                     number_of_files_no_extracted = + number_of_files_no_extracted
                     files_no_extracted.append(filename + ',{}'.format(e))

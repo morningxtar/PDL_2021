@@ -19,7 +19,7 @@ class TestConverterToCsv(unittest.TestCase):
             urls = md.ConverterToCsv.transform_wikiurls_to_realurls(f.readlines())
             for url in urls:
                 self.assertTrue(md.ConverterToCsv.check_found_url(url)[0], 200)
-               # self.assertNotEqual(md.ConverterToCsv.check_found_url(url)[1], 0)
+            # self.assertNotEqual(md.ConverterToCsv.check_found_url(url)[1], 0)
 
     def test_get_tables_contents_from_url(self):
         self.fail()
@@ -38,9 +38,6 @@ class TestConverterToCsv(unittest.TestCase):
             # the specified path is
             # an existing regular file or not
             self.assertTrue(isfile(join(monRepertoire_output, folder)))
-
-    def test_write_csv_files(self):
-        self.fail()
 
 
 if __name__ == '__main__':
