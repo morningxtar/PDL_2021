@@ -5,6 +5,7 @@ import os
 
 
 class ConverterToCsv:
+    # Ajouter a base_url le nom de la page wikipedia pour obtenir l'adresse exacte.
     def transform_wikiurls_to_realurls(wikiurls):
         base_url = 'https://en.wikipedia.org/wiki/'
         real_wikiurls = []
@@ -13,6 +14,7 @@ class ConverterToCsv:
             real_wikiurls.append(wikiurl.strip())
         return real_wikiurls
 
+    # Retourne deux valeurs : le code d'erreur et True si l'url contient des tables avec un attribut wikitable
     def check_found_url(url):
         req = requests.get(url)
         soup = BeautifulSoup(req.text, features='html.parser')
@@ -20,12 +22,14 @@ class ConverterToCsv:
         # print(soup.prettify())
         return req.status_code, len(_tables) != 0
 
+    # Retourne le contenu des tables à partir de l'url
     def get_tables_contents_from_url(url):
         html_content = requests.get(url).text
         soup = BeautifulSoup(html_content, features='html.parser')
         _tables = soup.find_all("table", attrs={"class": "wikitable"})
         return _tables
 
+    # Ecrire dans un fichier csv les données extraites
     def write_csv_files(dataframe, filename):
        # print((dataframe))
         dataframe.to_csv(r'{}'.format(filename + '.csv'), index=False)
