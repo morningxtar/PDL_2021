@@ -27,6 +27,7 @@ class ConverterToCsv:
         return _tables
 
     def write_csv_files(dataframe, filename):
+       # print((dataframe))
         dataframe.to_csv(r'{}'.format(filename + '.csv'), index=False)
 
         # print(list(filter(None, lines_contents[0].text.split('\n\n'))))
