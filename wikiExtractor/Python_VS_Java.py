@@ -1,11 +1,10 @@
 import os
 
 # execution the extractors in python
-
-from wikiExtractor.wikiMain import extractor_python
+from wikiExtractor import wikiMain
 
 print('---------------------------------PYTHON EXTRACTOR----------------------------------------------')
-duration_python = extractor_python()
+duration_python = wikiMain
 print('----------------------------------JAVA EXTRACTORS----------------------------------------------')
 # execution the extractors in java
 os.chdir("replace it by your java file jar")
