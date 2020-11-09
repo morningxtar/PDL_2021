@@ -10,7 +10,8 @@ Before run you must install the following libraries :
 - bs4
 - os
 ------------------------------------------------------------------------------------------
-to be able to launch the script Python_VS_Java.py you must generate a file. jar from the java project with IntelliJ IDEA including dependencies
+to be able to launch the script Python_VS_Java.py if you don't have jar file for java extractors:
+you must generate a file. jar from the java project with IntelliJ IDEA including dependencies
 by following these steps :
 
 - "File | Project Structure ... | Artifacts";
