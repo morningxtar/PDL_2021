@@ -1,4 +1,3 @@
-
 # importing the libraries
 import pandas as pd
 import lxml
@@ -7,11 +6,11 @@ import time
 import os
 import modules.ConverterToCsv as md
 
-wikiurls_path = '../input/wikiurls.txt'
-output_path = '../output'
-statistics_path = '../statistics'
 
-if __name__ == '__main__':
+def extractor_python():
+    wikiurls_path = '../input/wikiurls.txt'
+    output_path = '../output'
+    statistics_path = '../statistics'
     start_time = time.time()
     os.mkdir('../statistics') if not os.path.isdir('../statistics') else ''
     os.mkdir(output_path) if not os.path.isdir('../output') else ''
@@ -60,3 +59,10 @@ if __name__ == '__main__':
             'temps execution en seconde': [execution_time],
         })
         df.to_csv(r'{}'.format(statistics_path + '/general_statistic.csv'), index=False)
+    end_time = time.time()
+    return end_time - start_time
+
+
+if __name__ == '__main__':
+    duration = extractor_python()
+    print("Duration of the extractors in python: {} s".format(duration))
