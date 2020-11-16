@@ -28,9 +28,6 @@ def extractor_python():
             if status_code == 200 and wikitable_bool:
                 try:
                     dataframes = pd.read_html(url, attrs={"class": "wikitable"})
-                    df = pd.read_html(url, attrs={'class': "wikitable sortable"})
-                    for d in df:
-                        dataframes.append(d)
                     #  print(len(dataframes))
                     for index, dataframe in enumerate(dataframes):
                         filename = namefolder + '_{}'.format(index)
