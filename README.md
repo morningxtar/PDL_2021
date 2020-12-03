@@ -19,7 +19,6 @@ In Python_VS_JAVA.py, change java_extractor_path by your own path of extractor j
 
 ## Authors
 
-As we have already said it this project has been developed by those students
 * Issa Sanogo
 * Franck Kouamelan
 * Anwar Machadi
