@@ -1,5 +1,5 @@
 import unittest
-import modules.ConverterToCsv as md
+import wikiExtractor.wikiMain as md
 import requests
 from os import listdir
 from os.path import isfile, join, isdir
