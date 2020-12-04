@@ -15,3 +15,12 @@ To be able to launch the script Python_VS_Java.py you have to install JDK and [M
 [for more informations](https://maven.apache.org/install.html)
 
 In Python_VS_JAVA.py, change java_extractor_path by your own path of extractor java
+------------------------------------------------------------------------------------------
+
+## Authors
+
+* Issa Sanogo
+* Franck Kouamelan
+* Anwar Machadi
+* Stephane Kanga
+
